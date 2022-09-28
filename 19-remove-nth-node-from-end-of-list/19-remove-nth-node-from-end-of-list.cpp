@@ -42,9 +42,11 @@ public:
         {
             if(moveto==count+1)
             {
-                ListNode*dltnode=temp->next;
-                temp->next=dltnode->next;  
+                 temp->next=temp->next->next;
                 return head;
+              //  ListNode*dltnode=temp->next;
+               // temp->next=dltnode->next; 
+               
             }
             count++;
             temp=temp->next;
