@@ -26,28 +26,24 @@ public:
        // cout<<size<<endl;
         int moveto=size-n;
         temp=head;
-        if(moveto==0)
+        if(moveto==0)//to delete first element 
         {
             head=head->next;
-           // free(temp);
             return head;
         }
-        if(n==1)
-        {
-            prevnode->next=NULL;
-            //free(lastnode);
-            return head;
-        }
+        // if(n==1)// to delete last element
+        // {
+        //     prevnode->next=NULL;
+        //     return head;
+        // }
         int count=0;
         temp=head;
-        while(temp!=NULL)
+        while(temp!=NULL)//to delete any nodes in between 
         {
             if(moveto==count+1)
             {
                 ListNode*dltnode=temp->next;
-                temp->next=dltnode->next;
-                //cout<<dltnode->val;
-               // free(dltnode);  
+                temp->next=dltnode->next;  
                 return head;
             }
             count++;
