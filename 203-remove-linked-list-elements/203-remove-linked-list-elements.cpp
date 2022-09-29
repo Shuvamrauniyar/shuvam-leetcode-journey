@@ -33,15 +33,4 @@ public:
         return head;
     }
 };
-// //     if(head->val==ele)
-//              {
-//                   head=head->next;
-//                      temp=head;
-//                  continue;
-//              }
             
-//             if(temp->val==ele)
-//                 temp->next=temp->next->next;
-                
-            
-//                 temp=temp->next;
