@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //moore votings algorithm
     int majorityElement(vector<int>& nums) {
         int count=0;
         int candidate;
