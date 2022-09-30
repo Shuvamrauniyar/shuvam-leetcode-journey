@@ -1,23 +1,22 @@
 class Solution {
 public:
-    void sortColors(vector<int>& nums) {
-        map<int,int>m;
-        int cnt0=count(nums.begin(),nums.end(),0);
-        int cnt1=count(nums.begin(),nums.end(),1);
-        int cnt2=count(nums.begin(),nums.end(),2);
-        cout<<cnt0<<cnt1<<cnt2<<endl;
-        int i,j,k;
-        for( i=0;i<cnt0;i++)
+    void sortColors(vector<int>& a) {
+        int n=a.size();
+            int low=0,mid=0,high=n-1;
+        while(mid<=high)
         {
-             nums[i]=0;
-        }
-        for(j=i;j<cnt1+i;j++)
-        {
-            nums[j]=1;
-        }
-        for(k=j;k<cnt2+j;k++)
-        {
-            nums[k]=2;
+            if(a[mid]==0){
+                swap(a[low],a[mid]);
+                low++,mid++;
+            }
+           else if(a[mid]==1){
+             
+                mid++;
+            }
+          else  if(a[mid]==2){
+                swap(a[mid],a[high]);
+                high--;
+            }
         }
          
     }
