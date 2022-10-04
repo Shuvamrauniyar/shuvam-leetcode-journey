@@ -22,10 +22,6 @@ public:
         return false;
         }
         targetSum-=root->val;
-       if( hasPathSum(root->left,targetSum))
-           return true;
-         if(hasPathSum(root->right,targetSum))
-             return true;
-        return false;
+       return (hasPathSum(root->left,targetSum)||hasPathSum(root->right,targetSum));
     }
 };
