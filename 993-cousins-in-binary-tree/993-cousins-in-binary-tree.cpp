@@ -12,27 +12,33 @@
 class Solution {
 public:
     
-    void checkcousins(TreeNode* root, int x, int y,vector<pair<int,int>>&track,int depth,int parent)
+    TreeNode* add(TreeNode* root,int val ,int depth,int count)
     {
-        if(root==NULL)return;
-        if(root->val==x)
-        {
-            track.push_back({parent,depth});
-           
+        if(depth==1){
+            TreeNode *newroot=new TreeNode(val);
+            newroot->left=root;
+            return newroot;
         }
-         if(root->val==y)
+        if(root==NULL)return root;
+        if(depth-1==count&&root!=NULL)
         {
-            track.push_back({parent,depth});
+            TreeNode* leftnode=new TreeNode(val);
+            TreeNode* rightnode=new TreeNode(val);
+            leftnode->left=root->left;
+            root->left=leftnode;
+           // leftnode->right=NULL:
+            //leftnode->val=val;
+            rightnode->right=root->right;
+            root->right=rightnode;
+           // rightnode->left=NULL;
+          //  rightnode->val=val;
+            return root;
         }
-        checkcousins(root->left,x,y,track,depth+1,root->val);
-        checkcousins(root->right,x,y,track,depth+1,root->val);
+        add(root->left,val,depth,count+1);
+        add(root->right,val,depth,count+1);
+        return root;
     }
-    bool isCousins(TreeNode* root, int x, int y) {
-        vector<pair<int,int>>track;
-        int depth=1;
-        checkcousins(root,x,y,track,depth,-1);
-        if(track[0].first!=track[1].first&&track[0].second==track[1].second)
-            return true;
-        return false;
+    TreeNode* addOneRow(TreeNode* root, int val, int depth) {
+       return add(root,val,depth,1);
     }
 };
