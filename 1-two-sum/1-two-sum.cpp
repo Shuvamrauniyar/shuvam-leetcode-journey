@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         int n=nums.size();
-        vector<int>ans;
+        //vector<int>ans;
        
         vector<pair<int,int>>v;
         for(int i=0;i<n;i++)
@@ -21,13 +21,10 @@ public:
                 high--;
             else
             {
-                ans.push_back(v[low].second);
-                ans.push_back(v[high].second);
                 break;
             }
         }
-      
-     
-        return ans;
+              return {v[low].second,v[high].second};//doing this we save space for ans vector
+    
     }
 };
