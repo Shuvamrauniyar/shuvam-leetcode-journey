@@ -6,7 +6,7 @@ public:
         int n=nums.size();
        set<int> s;
         
-        if(k>n)k=n-1;
+        if(k>n)k=n;
         
        if(k==0)return false; 
        
