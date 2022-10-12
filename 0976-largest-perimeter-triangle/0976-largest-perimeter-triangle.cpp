@@ -3,13 +3,25 @@ public:
     int largestPerimeter(vector<int>& nums) {
         
         sort(nums.rbegin(),nums.rend());
+        int sum;
         for(int i=0;i<nums.size()-2;i++)
     {
-        int sum=nums[i]+nums[i+1]+nums[i+2];
+         sum=nums[i]+nums[i+1]+nums[i+2];
         double s=(double)sum/2;
-        double area=sqrt(s*(s-nums[i])*(s-nums[i+1])*(s-nums[i+2]));
-        if(area>0)return sum;
-        
+        int j=i;
+            int maxj=i+2;
+            bool check=true;
+       while(j<=maxj)
+       {
+        // cout<<nums[j]<<" ";   
+           if(nums[j++]>=s){
+               check=false;
+               break;
+           }
+       }
+            // cout<<endl;
+           if(check==true)
+            return sum;
     }
     return 0;
     }
