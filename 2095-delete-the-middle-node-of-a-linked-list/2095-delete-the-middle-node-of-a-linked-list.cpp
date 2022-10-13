@@ -19,23 +19,22 @@ public:
             temp=temp->next;
             
         }
+        //cout<<size;
         if(size==1)
         {
             head=head->next;
             return head;
         }
-        int count=1;
-        int movetill=size/2;
+        int count=size/2;
         temp=head;
-        while(temp!=NULL)
+        while(count--)
         {
-            if(count==movetill)
+            if(count==0)
             {
                 temp->next=temp->next->next;
             }
             else
                 temp=temp->next;
-            count++;
         }
         return head;
     }
