@@ -26,7 +26,6 @@ public:
             for(int i=0;i<size;i++)
             {
             TreeNode* node=q.front();
-           // cout<<node->val<<" ";
             q.pop();  
             if(node->left!=NULL)
             q.push(node->left);
