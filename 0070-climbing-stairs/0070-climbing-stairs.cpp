@@ -8,11 +8,18 @@ public:
             return 0;
         if(dp[i]!=-1)
             return dp[i];
+        //cout<<dp[i-1]<<' ';
       return dp[i]=findways(i-1,dp)+findways(i-2,dp);
     }
     int climbStairs(int n) {
         vector<int>dp(n+1,-1);
-         findways(n,dp);
+        dp[0]=1,dp[1]=1;
+        for(int i=2;i<=n;i++)
+        {
+            dp[i]=dp[i-1]+dp[i-2];
+        }
+       //  findways(n,dp);
+        
         return dp[n];
     }
 };
