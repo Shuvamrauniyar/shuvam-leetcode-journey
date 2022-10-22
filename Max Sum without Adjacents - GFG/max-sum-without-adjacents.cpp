@@ -11,10 +11,10 @@ public:
 	// calculate the maximum sum with out adjacent
 	int findmax(int i,int *arr,int n,vector<int>&dp)
 	{
-	    if(i==n-1)
-	    {
-	      return arr[i];
-	    }
+	   // if(i==n-1)
+	   // {
+	   //   return arr[i];
+	   // }
 	    if(i>=n)
 	    return 0;
 	    if(dp[i]!=-1)
@@ -26,8 +26,20 @@ public:
 	}
 	int findMaxSum(int *arr, int n) {
 	    // code here
-	    vector<int>dp(n+1,-1);
-	    return findmax(0,arr,n,dp);
+	    //return findmax(0,arr,n,dp);
+	    vector<int>dp(n+2,-1);
+	    dp[n+1]=0;
+	    dp[n]=0;
+	    
+	    for(int i=n-1;i>=0;i--)
+	    {
+	        int pick=0;
+	        //if(i<n)
+	         pick=arr[i]+dp[i+2];
+	        int notpick=dp[i+1];
+	        dp[i]=max(pick,notpick);
+	    }
+	    return dp[0];
 	}
 };
 
