@@ -10,7 +10,6 @@ public:
         {
             s2+=i;
         }
-        if(s1==s2)return true;
-        return false;
+       return s1==s2;
     }
 };
