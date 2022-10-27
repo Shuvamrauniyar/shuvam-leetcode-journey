@@ -12,9 +12,7 @@ public:
                 count++;
                 vis[i]=1;
                 
-           
-            }
-                  queue<int>q;
+               queue<int>q;
             q.push(i);
             while(!q.empty())
             {
@@ -28,6 +26,8 @@ public:
                     }
                }
             }
+            }
+              
            
             
         }
