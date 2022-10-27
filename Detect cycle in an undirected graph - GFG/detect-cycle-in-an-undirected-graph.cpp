@@ -30,6 +30,7 @@ class Solution {
                         q.push({j,x});
                     }
                     else if(parent!=j)
+                    //if(parent!=j)  //note I mistakely forget to write else instead i only write if and it was not accepting
                     return true;
                 }
             }
