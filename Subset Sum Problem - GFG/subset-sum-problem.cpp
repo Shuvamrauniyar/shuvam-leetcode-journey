@@ -26,7 +26,7 @@ bool find(int i,vector<int>arr, int sum,int target,vector<vector<int>>&dp)
     bool isSubsetSum(vector<int>arr, int sum){
         // code here 
         int n=arr.size();
-        vector<vector<int>>dp(n,vector<int>(sum,-1));
+        vector<vector<int>>dp(n,vector<int>(sum+1,-1));
         return find(arr.size()-1,arr,0,sum,dp);
     }
 };
