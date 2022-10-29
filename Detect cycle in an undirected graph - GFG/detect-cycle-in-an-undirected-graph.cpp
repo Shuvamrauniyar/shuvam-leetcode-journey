@@ -8,9 +8,10 @@ class Solution {
   
   bool dfs(int i, vector<int> adj[],int vis[],int parent)
   {
-      if(!vis[i])
-      {
-          vis[i]=1;
+       vis[i]=1;
+    //   if(!vis[i])
+    //   {
+         
           for(auto j:adj[i]){
               if(!vis[j]){
                 //  vis[j]=1;//this line will not satisfies all testcase ,note it and observe
@@ -19,7 +20,7 @@ class Solution {
               }
              else if(j!=parent)
              return true;
-          }
+       //   }
       }
       return false;
   }
