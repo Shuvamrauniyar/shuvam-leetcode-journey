@@ -5,36 +5,35 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
+  
+  bool dfs(int i, vector<int> adj[],int vis[],int parent)
+  {
+      if(!vis[i])
+      {
+          vis[i]=1;
+          for(auto j:adj[i]){
+              if(!vis[j]){
+                //  vis[j]=1;//this line will not satisfies all testcase ,note it and observe
+            if(dfs(j,adj,vis,i))
+            return true;
+              }
+             else if(j!=parent)
+             return true;
+          }
+      }
+      return false;
+  }
     // Function to detect cycle in an undirected graph.
     bool isCycle(int V, vector<int> adj[]) {
-        // Code hered
-       
+        // Code here
         int vis[V]={0};
         for(int i=0;i<V;i++)
         {
-            
-            if(!vis[i]){
-                vis[i]=1;
-                 queue<pair<int,int>>q;
-                q.push({i,-1});
-            while(!q.empty())
-            {
-                int x=q.front().first;
-                int parent=q.front().second;
-                q.pop();
-                for(auto j:adj[x])
-                {
-                    if(!vis[j])
-                    {
-                        vis[j]=1;
-                        q.push({j,x});
-                    }
-                    else if(parent!=j)
-                    //if(parent!=j)  //note I mistakely forget to write else instead i only write if and it was not accepting
-                    return true;
-                }
-            }
-            }
+            int parent=-1;
+           if(!vis[i]){
+            if(dfs(i,adj,vis,parent))
+            return true;
+           }
         }
         return false;
     }
