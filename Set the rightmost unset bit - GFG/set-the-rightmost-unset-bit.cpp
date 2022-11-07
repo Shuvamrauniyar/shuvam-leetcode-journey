@@ -9,9 +9,20 @@ public:
     int setBit(int n)
     {
         // Write Your Code here
-        if(!(n&(n+1)))
+        // if(!(n&(n+1)))
+        // return n;
+        // return n|(n+1);
+        if(n==0)return 1;
+           if ((n & (n + 1)) == 0)   
         return n;
-        return n|(n+1);
+        int n1=~n;
+       // cout<<n1<<" "<<(n1&(-n1));
+        
+        // if((n1&(-n1))==0)
+        // return n;
+        int pos=log2(n1&(-n1));
+        n=n|(1<<pos);
+        return n;
     }
 };
 
