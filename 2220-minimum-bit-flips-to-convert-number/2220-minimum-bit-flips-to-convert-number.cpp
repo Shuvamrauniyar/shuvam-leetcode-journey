@@ -8,7 +8,8 @@ public:
             int mask=x&(-x);
             if(mask)
                 count++;
-            x=x^mask;
+            mask=~mask;
+            x=x&mask;
         }
         return count;
     }
