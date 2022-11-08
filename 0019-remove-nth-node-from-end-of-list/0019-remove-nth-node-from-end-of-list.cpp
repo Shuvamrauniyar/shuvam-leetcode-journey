@@ -14,29 +14,42 @@ public:
      ListNode *temp;
         int size=0;
     temp=head;
-        while(temp!=NULL)
+        ListNode *dummy=new ListNode(0);
+        dummy->next=head;
+        ListNode *fast=dummy,*slow=dummy;
+        for(int i=1;i<=n;i++)
+            fast=fast->next;
+        
+        while(fast->next)
         {
-            size++;
-            temp=temp->next;
+            slow=slow->next;
+            fast=fast->next;
+            
         }
-        if(n==size)
-        {
-            head=head->next;
-            return head;
-        }
-       temp=head;
-        int count=1;
-        while(temp!=NULL)
-        {
-            if(count==size-n)
-            {
-                temp->next=temp->next->next;
-            }
-            else
-                temp=temp->next;
-            count++;
-        }
-        return head;
+       slow->next=slow->next->next;
+        return dummy->next;
         
     }
 };
+       //  while(temp!=NULL)
+       //  {
+       //      size++;
+       //      temp=temp->next;
+       //  }
+       //  if(n==size)
+       //  {
+       //      head=head->next;
+       //      return head;
+       //  }
+       // temp=head;
+       //  int count=1;
+       //  while(temp!=NULL)
+       //  {
+       //      if(count==size-n)
+       //      {
+       //          temp->next=temp->next->next;
+       //      }
+       //      else
+       //          temp=temp->next;
+       //      count++;
+       //  }
