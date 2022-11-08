@@ -19,12 +19,12 @@ public:
             slow=slow->next;
             fast=fast->next->next;
         }
-        if(slow&&slowprev->next)
+        if(slow&&slowprev->next)//this case is also for list with two elements
         {
             slowprev->next=slow->next;
             return head;
         }
        
-        return NULL;
+        return NULL;//this is if the list has only one elements
     }
 };
