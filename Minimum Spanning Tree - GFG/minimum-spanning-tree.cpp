@@ -9,7 +9,12 @@ class disjoint
     public:
          //vector<int> parent(V+1); dont define size here as this is in another class disjoint
          //actual size is passed from solution class
-         vector<int> parent;
+         
+         /*why i use size instead of using union by rank bcz rank of node get distorted
+         whenever another component get attached under it ,rank donot change so it doent gives us exact ans
+         though it gives correct solution at the end 
+         */
+         vector<int> parent; //decalre it outside constructor as it need to be accessed from the another solution 
           vector<int> size;
     disjoint(int V)
     {
@@ -73,7 +78,8 @@ class Solution
             int u=i.second.first;
             int v=i.second.second;
             
-            //if(d.parent[u]!=d.parent[v])
+            //if(d.parent[u]!=d.parent[v])  //observe this mistake i use parent[u] istead calling function
+            // and it was getting incorrect ans ,why bcz parent [] will get upadated as more connexted edges will be there
             if(d.findulparent(u)!=d.findulparent(v))
             {
                 mstwt+=wt;
