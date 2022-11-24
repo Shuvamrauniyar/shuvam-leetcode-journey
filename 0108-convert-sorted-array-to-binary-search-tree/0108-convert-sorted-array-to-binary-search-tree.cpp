@@ -13,17 +13,18 @@ class Solution {
 public:
     TreeNode * bst(vector<int>&nums,int low ,int high)
     {
-        if(low>high)
-            return NULL;
-        
+         TreeNode* temp=NULL;
+        if(low<=high)
+        {
             int mid=(low+high)/2;
          //temp=new TreeNode (nums[mid]);
-        TreeNode* temp=new TreeNode (nums[mid]);
+       temp=new TreeNode (nums[mid]);
             
             temp->left=bst(nums,low,mid-1);
             temp->right=bst(nums,mid+1,high);
             
         
+        }
         return temp;
     }
     TreeNode* sortedArrayToBST(vector<int>& nums) {
