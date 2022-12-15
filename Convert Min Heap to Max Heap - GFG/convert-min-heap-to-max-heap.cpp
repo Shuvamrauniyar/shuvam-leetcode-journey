@@ -9,9 +9,6 @@ using namespace std;
 
 class Solution{
 public:
-
-
-
 //this method will not work this is only for insertion case .
 
 //   void heapify_up(int i,vector<int> &a, int n)
@@ -50,7 +47,11 @@ void heapifydown(int i,vector<int>&a,int n)
     
 }
     void convertMinToMaxHeap(vector<int> &a, int n){
+        
+//for(int i=0;i<n/2;i++) //this for loop is very important ,mistakening it will give false result
+       //i was starting from i=0 which is incorrect
         for(int i=n/2-1;i>=0;i--)
+        
     {
         heapifydown(i,a,n);
     }
