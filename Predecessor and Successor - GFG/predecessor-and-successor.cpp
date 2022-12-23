@@ -129,11 +129,14 @@ void succ(Node *root,Node *&suc,int key)
     return ;
     
     if(root->key<=key)
+    {
+       
     succ(root->right,suc,key);
+    }
     else
     {
         suc=root;
-        succ(root->left,suc,key);
+        succ(root->left,suc,key); 
     }
     
 }
