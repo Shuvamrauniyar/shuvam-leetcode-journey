@@ -28,7 +28,7 @@ class Solution{
             //cout<<ans<<" ";
         s++;
         }
-        while(j<m && s<k){
+        while(j<m && s<k){ //i wrote j<n but it is j<m ,thats why incorrect ans was thrown
             //if(s>=k)break;
         ans=arr2[j++];
            // cout<<ans<<" ";
