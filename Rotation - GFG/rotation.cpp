@@ -11,6 +11,7 @@ public:
 	int findKRotation(int arr[], int n) {
 	    // code here
 	    //linear search for min element and return its index. eatch the editorial solution
+	    /*
 	    int mini=INT_MAX,idx=0;
 	    for(int i=0;i<n;i++)
 	    {
@@ -22,6 +23,23 @@ public:
 	        }
 	    }
 	    return idx;
+	   */
+	   
+	   //binary search //this is same as previously we have done in strivers sheet 
+	   int low=0,high=n-1;
+	   
+	   while(low<=high)
+	   {
+	       if(arr[low] <= arr[high] ) //for already sorted array
+	       return low; //return index 
+	       
+	       int mid= low +(high-low)/2 ; //to prevent overflow
+	       if(arr[mid] > arr[high])
+	       low=mid+1;
+	       else
+	       high=mid;
+	   }
+	   return low;
 	}
 
 };
