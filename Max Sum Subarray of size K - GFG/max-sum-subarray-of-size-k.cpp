@@ -15,13 +15,18 @@ public:
             
             sum+=a[j];
             
-            if(j-i+1 == K)
+            if(j-i+1 < K)
+            j++;
+            
+            else if(j-i+1 == K)
             {
                 maxsum=max(maxsum,sum);
                 sum-=a[i];
                 i++;
+                j++;
             }
-            j++;
+          //  j++; //you can write j++ here also or if you want to write like 
+            //aditya verma bhaiya you can also do it like that way for eady understanding
             
         }
         return maxsum;
