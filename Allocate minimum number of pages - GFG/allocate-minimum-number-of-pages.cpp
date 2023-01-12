@@ -55,7 +55,8 @@ class Solution
             low = mid+1;
             
         }
-       return isallocatable(A,N,M,high) ? high : -1;
+       //return isallocatable(A,N,M,high) ? high : -1;
+       return  high ;
     }
 };
 
