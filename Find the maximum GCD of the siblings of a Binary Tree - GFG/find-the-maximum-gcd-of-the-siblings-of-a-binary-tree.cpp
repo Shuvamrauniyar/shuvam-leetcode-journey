@@ -110,7 +110,7 @@ pair<int,int>helper(Node *root)
         gcdsib.first = __gcd(root->left->data,root->right->data);
         gcdsib.second = root->data;
     }
-    pair<int,int> gcdleft = {0,0} ,gcdright = {0,0},maxi={0,0};
+    pair<int,int> gcdleft = {0,0} ,gcdright = {0,0};
     if(root->left)
     gcdleft=helper(root->left);
     
