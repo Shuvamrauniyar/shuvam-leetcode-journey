@@ -29,7 +29,7 @@ class Solution
           }
           else if(maxi == wt[i])
           {
-              if(maxi_idx < i)
+             // if(maxi_idx < i)
               maxi_idx = i;
           }
           
