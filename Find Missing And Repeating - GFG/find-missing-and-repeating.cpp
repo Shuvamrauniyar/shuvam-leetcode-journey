@@ -19,8 +19,9 @@ public:
          //getting righmost set bit position of xorVal 
          int setBitPos = xorVal & ~(xorVal -1);
          
-         //categorizing into two sets( we will not create new array to store the categorized elements ,irectly we will store their final xorvalues in two variables )
-         
+         //categorizing into two sets( we will not create new array to store the categorized elements ,directly we will store their final xorvalues in two variables )
+         //firstly categorizing the array elements
+         //why categorizing ? , bcz we know to get righmost set bit after XOR Operation, any one number(among x and y ) must have the bit set to that same postion(of rightmost bit) 
          int x = 0 , y = 0 ;
          for(int i = 0 ; i<n ; i++ )
          {
@@ -31,6 +32,7 @@ public:
              y ^= *(arr+i);
              
          }
+         //secondly categorizing the elements form 1 to N
          for(int i = 1 ; i<=n ; i++ )
          {
              if(i & setBitPos)
@@ -40,7 +42,7 @@ public:
              y ^= i;
              
          }
-         
+         //now finding among x and y ,which one is the missing number and which occurs twice
          int count_x= 0 ;
          for(int i = 0 ;i<n;i++)
          {
