@@ -8,38 +8,24 @@ using namespace std;
 //User function template for C++
 class Solution{
 public:	
+
+int findSum(int i ,int *arr,int n,vector<int>&dp)
+{
+    if(i >= n)
+    return 0;
+    
+    if(dp[i] != -1)
+    return dp[i];
+    int pick = *(arr+i) + findSum(i+2,arr,n,dp);
+    int notpick = findSum(i+1,arr,n,dp);
+    
+    return dp[i] = max(pick,notpick);
+}
 	// calculate the maximum sum with out adjacent
-	int findmax(int i,int *arr,int n,vector<int>&dp)
-	{
-	   // if(i==n-1)
-	   // {
-	   //   return arr[i];
-	   // }
-	    if(i>=n)
-	    return 0;
-	    if(dp[i]!=-1)
-	    return dp[i];
-	    int pick=arr[i]+findmax(i+2,arr,n,dp);
-	    int notpick=findmax(i+1,arr,n,dp);
-	   // cout<<max(pick,notpick)<<endl;
-	    return dp[i]=max(pick,notpick);
-	}
 	int findMaxSum(int *arr, int n) {
 	    // code here
-	    //return findmax(0,arr,n,dp);
-	    vector<int>dp(n+2,-1);
-	    dp[n+1]=0;
-	    dp[n]=0;
-	    
-	    for(int i=n-1;i>=0;i--)
-	    {
-	        int pick=0;
-	        //if(i<n)
-	         pick=arr[i]+dp[i+2];
-	        int notpick=dp[i+1];
-	        dp[i]=max(pick,notpick);
-	    }
-	    return dp[0];
+	    vector<int>dp(n,-1);
+	    return findSum(0,arr,n,dp);
 	}
 };
 
