@@ -11,6 +11,9 @@ class Solution{
         // your code here
         vector<vector<int>>dp(n+1,vector<int>(m+1,-1));
         
+        
+        //the memoized version of it also gives TLE because of 3 function call , for large lengtj testcases of type
+        //Testcase: s1 = abcabcd, s2 = abcd (this one is of smaller length)
          for(int i = 0; i < n ;i++)
         {
             dp[i][0] = 0;
