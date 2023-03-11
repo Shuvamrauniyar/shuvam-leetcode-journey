@@ -8,7 +8,8 @@ class Solution {
   public:
     vector<int> solveQueries(int n, int num, vector<int> &a, vector<vector<int>> &q) {
         // code here
-        int prefixFreqSum = 0;
+        //in the previous submission i understand the question in wrong way ,you can observe it
+        
        map<int,int>m;
         vector<int>count(n);
         for(int i = n-1; i>=0 ;i--)//traversing from backward bcz we need freq from i to n-1
