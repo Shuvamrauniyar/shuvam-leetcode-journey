@@ -18,6 +18,7 @@ public:
        // code here
       // int ans = 0;
        int div = x[0]-'0';
+      // cout<<div<<" "<<(int)(x[0])<<endl; observe this line.
        //cout<<div<<endl;
        for(int i  = 1; i < x.size(); i++)
        {
