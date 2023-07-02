@@ -16,7 +16,7 @@ public:
 	    int prev;
 	    for(int i=0;i<n;i++)
 	    {
-	        prev=l1;
+	        //prev=l1;
 	        if(arr[i]>l1){
 	            l2=l1;
 	        l1=arr[i];
