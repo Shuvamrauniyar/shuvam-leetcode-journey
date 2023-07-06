@@ -13,22 +13,22 @@ class Solution{
         
         // Your code here
         long long mid,low=0,high=n-1;
+        int ans = -1;
         while(low<=high)
         {
-            if (x >= v[high])
-            return high;
+            // if (x >= v[high]) this will not work for testcases like x = 7 and arr= [6,6,8,9] but here the questions states the array has no duplicates
+            // return high;
             mid=(low+high)/2;
             if(v[mid]==x)return mid;
-            
-            // else if(v[mid]<=x &&x<v[mid]) //little modification
-            // return mid;
             else if(v[mid]>x)
             high=mid-1;
-            else
+            else{
+            ans = mid;
             low=mid+1;
+            }
             
         }
-        return -1;
+        return ans;
         
     }
 };
