@@ -3,53 +3,47 @@
 using namespace std;
 
 // } Driver Code Ends
-vector<int> find(int arr[], int n , int x )
-{
-    // code here
-    int mid,low=0,high=n-1;
-    int idx1=-1,idx2=-1;
-    bool found=false;
-    vector<int>ans;
+
+int binarySearch(int arr[], int n , int x,bool firstOccur ){
+     int mid,low=0,high=n-1;
+    int ansIdx= -1; 
+ 
       while(low<=high)
     {
         mid=(low+high)/2;
         if(arr[mid]==x)
         {
-            idx1=mid;
-            high=mid-1; //main logic
+            
+            ansIdx=mid; //once x is found, saving it in answer.
+            if(firstOccur == true)
+            {
+                high=mid-1; //main logic
+            }
+            else if(firstOccur == false)
+            {
+                low = mid+1;//once x is found, moving to right to find the last occurences 
+            }
+            
         }
         else if(x>arr[mid])
         {
-          
              low=mid+1;
-           
         }
         else if(x<arr[mid])
         {
              high=mid-1;
         }
     }
-    
-     low=0,high=n-1;
-  while(low<=high)
-    {
-        mid=(low+high)/2;
-        if(arr[mid]==x)
-        {
-            idx2=mid;
-            low=mid+1; //once x is found, moving to right to find the last occurences 
-        }
-        else if(x>arr[mid])
-        {
-          
-             low=mid+1;
-           
-        }
-        else if(x<arr[mid])
-        {
-             high=mid-1;
-        }
-    }
+    return ansIdx;
+}
+
+vector<int> find(int arr[], int n , int x )
+{
+    // code here
+    int idx1 = binarySearch(arr, n, x, true); //to find first occurence
+    int idx2 = binarySearch(arr, n, x, false); //to find last occurence
+    //cout<<idx1<<" "<<idx2<<endl;
+    vector<int>ans;
         if(idx1!=-1 ||idx2!=-1){
            if(idx1!=-1 &&idx2!=-1){
             ans.push_back(idx1);
