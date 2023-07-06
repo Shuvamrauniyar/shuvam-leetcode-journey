@@ -40,24 +40,26 @@ int binarySearch(int arr[], int n , int x,bool firstOccur ){
 vector<int> find(int arr[], int n , int x )
 {
     // code here
-    int idx1 = binarySearch(arr, n, x, true); //to find first occurence
-    int idx2 = binarySearch(arr, n, x, false); //to find last occurence
+    int idx1 = -1;
+    idx1  = binarySearch(arr, n, x, true); //to find first occurence
+    int idx2 = -1;
+    idx2 = binarySearch(arr, n, x, false); //to find last occurence
     //cout<<idx1<<" "<<idx2<<endl;
-    vector<int>ans;
-        if(idx1!=-1 ||idx2!=-1){
-           if(idx1!=-1 &&idx2!=-1){
-            ans.push_back(idx1);
-            ans.push_back(idx2);
-            return ans;
-           }
-           else
-           {
-               ans.push_back(max(idx1,idx2));
-               ans.push_back(max(idx1,idx2));
-               return ans;
-           }
-        } 
-        return {-1,-1};
+   // vector<int>ans;
+        // if(idx1!=-1 ||idx2!=-1){
+        //   if(idx1!=-1 &&idx2!=-1){
+        //     ans.push_back(idx1);
+        //     ans.push_back(idx2);
+        //     return ans;
+        //   }
+        //   else
+        //   {
+        //       ans.push_back(max(idx1,idx2));
+        //       ans.push_back(max(idx1,idx2));
+        //       return ans;
+        //   }
+        // } 
+        return {idx1, idx2};
     }
 
 
