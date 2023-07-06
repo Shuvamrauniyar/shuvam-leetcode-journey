@@ -38,14 +38,17 @@ pair<int,int>binarySearch(int arr[], int n, int x){
         //     return low;
         // }
         int mid = low + (high-low)/2;
+        
         if(arr[mid] == x)
         return {arr[mid], arr[mid]};
-        else if(x < arr[mid]){
-        ceil = arr[mid];
+        
+        else if(x < arr[mid]){ //here x is lesser than arr[mid] so arr[mid] can be a ceil for x.
+        ceil = arr[mid]; //this ceil value will update whenever this codn gets the control 
         high = mid-1;
         }
+
         else{
-        floor= arr[mid];
+        floor= arr[mid]; 
         low = mid + 1;
         }
     }
